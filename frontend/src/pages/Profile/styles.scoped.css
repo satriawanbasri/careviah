@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    color: #1d1d1bde;
+}
+
+.button-outlined {
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #d32f2f;
+    height: 42px;
+    border: none;
+    border-radius: 16px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #d32f2f80;
+}

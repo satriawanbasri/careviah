@@ -1,0 +1,339 @@
+[
+    {
+        "id": "client_001",
+        "clientName": "Melisa Adam",
+        "clientEmail": "melisa.adam@example.com",
+        "clientPhone": "+62 812-3456-7890",
+        "clientProfilePhotoUrl": "https://picsum.photos/id/1005/100/100",
+        "clientAddress": "1234 Liberty St, Los Angeles, CA 90001, USA",
+        "services": [
+            {
+                "serviceId": "service_001_001",
+                "serviceName": "Regular Apartment Cleaning",
+                "serviceType": "Cleaning",
+                "scheduledDate": "2025-01-15",
+                "scheduledStartTime": "09:00",
+                "scheduledEndTime": "10:00",
+                "actualClockIn": "2025-01-15T08:58:30",
+                "actualClockOut": "2025-01-15T10:05:15",
+                "status": "completed",
+                "serviceNotes": "Client prefers the exclusive use of eco-friendly and non-allergenic cleaning products throughout the entire apartment, especially in living spaces and bedrooms to ensure a fresh, chemical-free environment. \nIt is absolutely crucial to pay extra special attention to cleaning all kitchen counters and the stovetop, ensuring no grease, crumbs, or any residue whatsoever is left behind, as the client frequently cooks at home and maintains very high hygiene standards in this area. Also, ensure all stainless steel appliances are polished to a streak-free shine.",
+                "tasks": [
+                    {
+                        "taskId": "task_001_001_001",
+                        "taskName": "Vacuum all carpets and rugs",
+                        "description": "Ensure all carpeted areas and area rugs throughout the apartment are meticulously vacuumed, including under sofas, chairs, and other light furniture that can be easily moved. \nPlease pay particular attention to corners, edges, and high-traffic pathways where dust, pet hair, and debris tend to accumulate most heavily. A thorough pass is essential for complete cleanliness.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_001_002",
+                        "taskName": "Clean and sanitize bathrooms",
+                        "description": "Perform a deep clean and sanitization of all bathroom surfaces, including scrubbing toilets inside and out, polishing faucets and fixtures, cleaning shower walls and glass doors to remove soap scum, and wiping down sinks. \nFinish by thoroughly mopping the bathroom floors with a hospital-grade disinfectant cleaner, ensuring grout lines are also clean and no water spots remain.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_001_003",
+                        "taskName": "Dust all surfaces",
+                        "description": "Carefully dust all furniture, decorative shelves, picture frames, and electronic devices using a specialized microfiber cloth designed to trap dust. \nFor all wood surfaces, please use a slightly damp cloth followed by a dry polish to prevent static buildup and ensure a pristine, streak-free finish that enhances the wood's natural luster.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_001_004",
+                        "taskName": "Empty all trash cans",
+                        "description": "Collect and dispose of trash from all waste bins located throughout the apartment, including kitchen, bathrooms, and bedrooms. \nRemember to replace liners in all trash cans with new, appropriately sized bags to maintain cleanliness and prevent odors.",
+                        "completed": "no",
+                        "notes": "Client requested not to empty trash in the main living area due to ongoing sorting. Will complete next visit."
+                    }
+                ]
+            },
+            {
+                "serviceId": "service_001_002",
+                "serviceName": "Deep Kitchen Cleaning",
+                "serviceType": "Cleaning",
+                "scheduledDate": "2025-01-20",
+                "scheduledStartTime": "14:00",
+                "scheduledEndTime": "16:00",
+                "actualClockIn": null,
+                "actualClockOut": null,
+                "status": "scheduled",
+                "serviceNotes": "This specific visit requires a comprehensive and extremely thorough deep clean of the entire kitchen area, beyond the scope of a regular cleaning. \nThe primary focus areas, as per the client's special request, are the interior of the oven and refrigerator, which need meticulous attention to remove all built-up grime, spills, and odors. Ensure all reachable surfaces are spotless and sanitized.",
+                "tasks": [
+                    {
+                        "taskId": "task_001_002_001",
+                        "taskName": "Clean oven interior and exterior",
+                        "description": "Apply a heavy-duty, yet safe, oven cleaner to tackle all baked-on grease and food residues inside the oven, allowing adequate dwell time as per product instructions. \nAfterwards, meticulously wipe down the interior and exterior surfaces, including racks and glass, to achieve a sparkling, like-new condition with no chemical smell remaining.",
+                        "completed": null,
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_002_002",
+                        "taskName": "Clean refrigerator interior",
+                        "description": "Completely empty the refrigerator and remove all shelves, drawers, and removable compartments for a thorough hand-wash and sanitization. \nClean all interior surfaces, including seals and crevices, to eliminate any food spills, odors, or sticky residues before returning cleaned components.",
+                        "completed": null,
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_002_003",
+                        "taskName": "Wipe down all kitchen cabinets",
+                        "description": "Carefully wipe down both the inside and outside surfaces of all kitchen cabinets. \nPay close attention to removing any accumulated grease marks, fingerprints, and food splatters, ensuring a clean and uniform appearance on all cabinet fronts and handles.",
+                        "completed": null,
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_002_004",
+                        "taskName": "Mop kitchen floor",
+                        "description": "Thoroughly mop the entire kitchen floor, focusing on areas prone to spills and high traffic. \nUtilize a powerful, professional-grade degreaser specifically designed for kitchen floors to ensure optimal results and eliminate any stubborn sticky spots or grime.",
+                        "completed": null,
+                        "notes": null
+                    }
+                ]
+            },
+            {
+                "serviceId": "service_001_003",
+                "serviceName": "Window Washing",
+                "serviceType": "Maintenance",
+                "scheduledDate": "2025-01-22",
+                "scheduledStartTime": "10:30",
+                "scheduledEndTime": "12:30",
+                "actualClockIn": "2025-06-29T10:30:00",
+                "actualClockOut": null,
+                "status": "in_progress",
+                "serviceNotes": "This service is strictly for exterior windows only; the interior windows of the apartment are explicitly not part of this job and should not be touched. \nThe client has a specific ladder and specialized window cleaning equipment available on-site that must be exclusively used for safe access to higher windows and to ensure adherence to their preferred cleaning methods.",
+                "tasks": [
+                    {
+                        "taskId": "task_001_003_001",
+                        "taskName": "Wash all exterior windows",
+                        "description": "Clean all exterior windows of the apartment, including any accessible balcony glass panels, ensuring a perfectly streak-free and spotless finish. \nUse professional window cleaning tools and solution, taking care to avoid drips or overspray on adjacent surfaces.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_001_003_002",
+                        "taskName": "Clean window sills",
+                        "description": "Meticulously wipe down and clean all exterior window sills associated with the windows being washed. \nEnsure all accumulated dust, dirt, cobwebs, and any other debris are completely removed from the sill surfaces and crevices.",
+                        "completed": null,
+                        "notes": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "client_002",
+        "clientName": "David Chen",
+        "clientEmail": "david.chen@example.com",
+        "clientPhone": "+62 821-9876-5432",
+        "clientProfilePhotoUrl": "https://picsum.photos/id/1011/100/100",
+        "clientAddress": "456 Oak Avenue, Chicago, IL 60611, USA",
+        "services": [
+            {
+                "serviceId": "service_002_001",
+                "serviceName": "Gardening and Lawn Care",
+                "serviceType": "Outdoor",
+                "scheduledDate": "2025-02-01",
+                "scheduledStartTime": "08:00",
+                "scheduledEndTime": "12:00",
+                "actualClockIn": null,
+                "actualClockOut": null,
+                "status": "completed",
+                "serviceNotes": "The client has explicitly requested that only certified organic pest control solutions and natural fertilizers be used for their entire garden and lawn. \nPlease ensure all products brought on-site and applied comply strictly with these organic requirements to protect their plants and the local ecosystem. They are very particular about chemical use.",
+                "tasks": [
+                    {
+                        "taskId": "task_002_001_001",
+                        "taskName": "Mow front and back lawn",
+                        "description": "Mow both the front and back lawns evenly, ensuring a consistent height across all areas. \nSet the mower to a relatively high setting to promote healthier grass growth and prevent scalping, especially during hotter months.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_002_001_002",
+                        "taskName": "Weed flower beds",
+                        "description": "Thoroughly remove all weeds from all designated flower beds and garden borders. \nThis can be done meticulously by hand or with appropriate weeding tools to ensure complete removal of roots and minimize regrowth.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_002_001_003",
+                        "taskName": "Trim bushes and hedges",
+                        "description": "Neatly trim all bushes and hedges around the property, maintaining their intended shape and promoting dense, healthy growth. \nEnsure all clippings are collected and disposed of properly, leaving the area tidy.",
+                        "completed": "no",
+                        "notes": "Unable to trim hedges near the pond due to bee activity. Advised client."
+                    },
+                    {
+                        "taskId": "task_002_001_004",
+                        "taskName": "Water garden plants",
+                        "description": "Water all garden plants, focusing on deep watering to encourage strong root development. \nPay extra attention to any new plantings or drought-sensitive species, ensuring they receive sufficient moisture without overwatering.",
+                        "completed": "yes",
+                        "notes": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "client_003",
+        "clientName": "Sarah Johnson",
+        "clientEmail": "sarah.j@example.com",
+        "clientPhone": "+62 878-1122-3344",
+        "clientProfilePhotoUrl": "https://picsum.photos/id/1012/100/100",
+        "clientAddress": "789 Maple Drive, Brooklyn, NY 11201, USA",
+        "services": [
+            {
+                "serviceId": "service_003_001",
+                "serviceName": "IT Support and Network Setup",
+                "serviceType": "Technical",
+                "scheduledDate": "2025-02-10",
+                "scheduledStartTime": "13:00",
+                "scheduledEndTime": "17:00",
+                "actualClockIn": null,
+                "actualClockOut": null,
+                "status": "scheduled",
+                "serviceNotes": "The client is experiencing persistent and frustrating issues with their Wi-Fi connectivity across multiple devices, including intermittent drops and slow speeds. Additionally, they require assistance with the complete setup and configuration of a new network printer. \nIt is imperative to ensure all devices are connected, functioning correctly, and stable on the network before concluding the visit.",
+                "tasks": [
+                    {
+                        "taskId": "task_003_001_001",
+                        "taskName": "Diagnose Wi-Fi issues",
+                        "description": "Conduct a comprehensive investigation to diagnose the root cause of the Wi-Fi connectivity problems. \nThis includes thoroughly checking the router's current settings, assessing signal strength throughout the property, and identifying any potential interference sources that might be disrupting the connection.",
+                        "completed": null,
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_003_001_002",
+                        "taskName": "Set up new wireless printer",
+                        "description": "Install all necessary drivers and accompanying software for the new wireless printer. \nEnsure it is properly connected to the client's network and conduct multiple test prints from at least two different client devices to confirm full functionality.",
+                        "completed": null,
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_003_001_003",
+                        "taskName": "Optimize network speed",
+                        "description": "Perform network optimization procedures to improve overall internet speed and network stability for all connected devices. \nThis may involve configuring router settings for optimal performance, checking for available firmware updates, or adjusting Wi-Fi channel settings to reduce congestion.",
+                        "completed": null,
+                        "notes": null
+                    }
+                ]
+            },
+            {
+                "serviceId": "service_003_002",
+                "serviceName": "Software Installation",
+                "serviceType": "Technical",
+                "scheduledDate": "2025-02-15",
+                "scheduledStartTime": "09:00",
+                "scheduledEndTime": "10:30",
+                "actualClockIn": null,
+                "actualClockOut": null,
+                "status": "cancelled",
+                "serviceNotes": "The client unfortunately cancelled this specific software installation appointment at the last minute due to unforeseen complications related to obtaining the necessary and valid software licenses for the applications. \nConsequently, no work was performed or initiated on-site during this scheduled time slot.",
+                "tasks": [
+                    {
+                        "taskId": "task_003_002_001",
+                        "taskName": "Install Adobe Creative Suite",
+                        "description": "Proceed with the full and complete installation of the Adobe Creative Suite on the designated client computer. \nEnsure that all individual applications within the suite are properly installed, activated using the provided license key, and verified for initial launch functionality.",
+                        "completed": "no",
+                        "notes": "Client cancelled due to license issues, installation could not proceed."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "client_004",
+        "clientName": "Robert Brown",
+        "clientEmail": "robert.b@example.com",
+        "clientPhone": "+62 856-5566-7788",
+        "clientProfilePhotoUrl": "https://picsum.photos/id/1025/100/100",
+        "clientAddress": "135 Hilltop Ln, San Francisco, CA 94109, USA",
+        "services": [
+            {
+                "serviceId": "service_004_001",
+                "serviceName": "Home Appliance Repair",
+                "serviceType": "Repair",
+                "scheduledDate": "2025-03-05",
+                "scheduledStartTime": "10:00",
+                "scheduledEndTime": "12:00",
+                "actualClockIn": "2025-03-05T09:55:00",
+                "actualClockOut": "2025-03-05T12:10:00",
+                "status": "completed",
+                "serviceNotes": "The client's dishwasher is consistently not draining properly after completing its wash cycles, leading to a significant amount of water pooling at the bottom of the tub. \nUrgent investigation and subsequent repair of the drainage system are critically required to restore full functionality and prevent potential water damage.",
+                "tasks": [
+                    {
+                        "taskId": "task_004_001_001",
+                        "taskName": "Diagnose dishwasher drainage issue",
+                        "description": "Conduct a thorough inspection of the dishwasher's entire drainage system to accurately identify the root cause of the pooling water problem. \nThis involves meticulously checking the main filter, the drain hose for kinks or blockages, and the functionality of the drainage pump.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_004_001_002",
+                        "taskName": "Clear drainage clog",
+                        "description": "If a clog or obstruction is identified within the drainage system, carefully and thoroughly remove all impeding material from the drain hose or pump. \nEnsure all debris is completely cleared to allow for unobstructed and proper water flow during cycles.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_004_001_003",
+                        "taskName": "Test dishwasher cycle",
+                        "description": "Run a complete dishwasher cycle, including wash and drain phases, to thoroughly test the repair. \nConfirm that the water drains correctly and efficiently from the tub, and that no pooling occurs at the bottom after the cycle finishes.",
+                        "completed": "no",
+                        "notes": "Dishwasher test cycle still showed minor pooling; requires further investigation or part replacement."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "client_005",
+        "clientName": "Emily White",
+        "clientEmail": "emily.w@example.com",
+        "clientPhone": "+62 813-9988-7766",
+        "clientProfilePhotoUrl": "https://picsum.photos/id/1027/100/100",
+        "clientAddress": "890 Pinecrest Rd, Portland, OR 97205, USA",
+        "services": [
+            {
+                "serviceId": "service_005_001",
+                "serviceName": "Pet Sitting",
+                "serviceType": "Pet Care",
+                "scheduledDate": "2025-03-10",
+                "scheduledStartTime": "08:00",
+                "scheduledEndTime": "18:00",
+                "actualClockIn": "2025-06-29T08:58:30",
+                "actualClockOut": null,
+                "status": "in_progress",
+                "serviceNotes": "This specific pet sitting assignment involves the comprehensive care of two beloved cats, affectionately named 'Whiskers' (a fluffy Persian) and 'Shadow' (a sleek black domestic shorthair). \nKey daily responsibilities include precise feeding routines twice daily, engaging them in interactive playtime for at least 30 minutes to ensure their mental and physical well-being, and meticulously maintaining the litter box for optimal hygiene and odor control throughout the day. Please also ensure fresh water is always available.",
+                "tasks": [
+                    {
+                        "taskId": "task_005_001_001",
+                        "taskName": "Morning feeding",
+                        "description": "At approximately 8:00 AM, provide the cats with their designated portion of dry food in their respective bowls. \nEnsure their water bowls are thoroughly cleaned and refilled with fresh, clean water.",
+                        "completed": "yes",
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_005_001_002",
+                        "taskName": "Evening feeding",
+                        "description": "Around 6:00 PM, serve the cats their portion of wet food as per client instructions. \nOnce again, verify that their water bowls are sparkling clean and completely full with fresh water.",
+                        "completed": null,
+                        "notes": null
+                    },
+                    {
+                        "taskId": "task_005_001_003",
+                        "taskName": "Litter box cleaning",
+                        "description": "Scoop the litter box at least once daily, or more if needed, to remove all solid waste and clumps. \nAdd fresh litter as required to maintain a suitable depth and ensure maximum hygiene and odor control.",
+                        "completed": "no",
+                        "notes": "Couldn't fully clean litter box as one cat was actively using it and seemed distressed when approached. Will try again later."
+                    },
+                    {
+                        "taskId": "task_005_001_004",
+                        "taskName": "Playtime with cats",
+                        "description": "Engage both cats in interactive playtime using their favorite toys (located in the living room toy basket) for a minimum of 30 minutes each session. \nThis helps with their physical activity, mental stimulation, and provides companionship.",
+                        "completed": null,
+                        "notes": null
+                    }
+                ]
+            }
+        ]
+    }
+]

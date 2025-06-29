@@ -1,0 +1,161 @@
+.title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.back {
+    cursor: pointer;
+}
+
+.tick {
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    width: 1152;
+    height: 164;
+    border-radius: 12px;
+    gap: 8px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    background-color: #2da6ff0a;
+}
+
+.task-name {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    color: #0d5d59;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 24px;
+    color: #212121;
+}
+
+.task {
+    color: #1d1d1bde;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+.location {
+    color: #1d1d1bde;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+.address-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.address {
+    color: #1d1d1bde;
+    width: 200px;
+}
+
+.notes {
+    color: #1d1d1bde;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+.notes-content {
+    color: #1d1d1bde;
+    margin-top: 10px;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.button-filled {
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #0d5d59;
+    color: #ffffff;
+    height: 52px;
+    box-shadow: 0px 2px 4px 0px #60617029;
+    border: none;
+    border-radius: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button-outlined {
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #d32f2f;
+    height: 52px;
+    border: none;
+    border-radius: 16px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #d32f2f;
+}
+
+@media (max-width: 767px) {
+    .tick {
+        margin-top: 28px;
+    }
+
+    .title-container {
+        display: inherit;
+    }
+
+    .back {
+        position: absolute;
+    }
+
+    .title {
+        text-align: center;
+    }
+}

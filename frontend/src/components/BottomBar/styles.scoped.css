@@ -1,0 +1,39 @@
+.container {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    bottom: 0px;
+    background-color: #f5fbff;
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu-text {
+    color: #757575;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.menu-item.selected .menu-text {
+    color: #0d5d59;
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .container {
+        display: flex;
+    }
+}

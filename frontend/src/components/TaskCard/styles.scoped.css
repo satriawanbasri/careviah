@@ -1,0 +1,67 @@
+.container {
+    border-radius: 8px;
+    padding-top: 16px;
+    padding-right: 20px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0px 0px 7px 0px #0000000d;
+    margin-top: 16px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 18px;
+    color: #0d5d59;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.yesno {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 78;
+    height: 44;
+    border-radius: 16px;
+    gap: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.yesno.selected {
+    background-color: #2da6ff1f;
+}
+
+.yesno.selected:hover {
+    background-color: #2da6ff1f;
+}
+
+.yesno:hover {
+    background-color: #e6e6e6;
+}
+
+.action-text {
+    font-size: 20px;
+    color: #1d1d1bde;
+}
+
+.reason {
+    height: 30px;
+    border-radius: 12px;
+    padding-top: 8px;
+    padding-right: 20px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    border: 1px solid #c4c4c4;
+    font-size: 16px;
+    margin-top: 10px;
+}
