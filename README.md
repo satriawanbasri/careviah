@@ -8,15 +8,15 @@ Frontend using reactjs javascript.
 To run it locally for both frontend and backend, just install the package first using "yarn" command, and run the apps using "yarn start".\
 By default backend run on port 4000 and frontend run on port 3000.\
 Don't forget to change environment variable (.env file) in frontend to point to local backend server by changning\
-REACT_APP_API_BASE_URL=http://localhost:4000\
+
+REACT_APP_API_BASE_URL=http://localhost:4000  
 #REACT_APP_API_BASE_URL=https://api-careviah.vercel.app
 
 ### Apps Deployment Host
 
 The apps has been deployed into vercel.\
 For backend:\
-https://api-careviah.vercel.app/
-
+https://api-careviah.vercel.app/  
 For frontend:\
 https://careviah.vercel.app/
 
