@@ -1,20 +1,36 @@
 import './styles.scoped.css'
-import { useEffect, useState } from 'react'
-import { ScheduleCard, ClockCard } from '../../components'
+import { useEffect, useState, useContext } from 'react'
+import { ScheduleCard, ClockCard, CompletedModal } from '../../components'
 import { fetchAllSchedules } from '../../utils/api'
+import { IsShowLoadingContext } from '../../utils/contexts'
+import { toast } from 'react-toastify'
 
 export default () => {
+    const { setIsShowLoading } = useContext(IsShowLoadingContext)
     const [schedules, setSchedules] = useState()
 
     useEffect(() => {
-        fetchAllSchedules().then(res => setSchedules(res.data))
+        setIsShowLoading(true)
+        fetchAllSchedules()
+            .then(res => {
+                setSchedules(res.data)
+                setIsShowLoading(false)
+            })
+            .catch(err => {
+                setIsShowLoading(false)
+                toast.error('Something went wrong!')
+            })
     }, [])
 
     return (
         <>
             <div className="title">Dashboard</div>
             <div className="welcome">Welcome Valery!</div>
-            <ClockCard />
+            {schedules?.filter(item => item?.status == 'in_progress').length > 0 && (
+                <div className="clock-container">
+                    {schedules?.filter(item => item?.status == 'in_progress')?.map((item, index) => <ClockCard data={item} key={index} />)}
+                </div>
+            )}
             <div className="total-container desktop">
                 <div className="total-card">
                     <div className="total-value" style={{ color: '#D32F2F' }}>
@@ -66,6 +82,7 @@ export default () => {
                 <div className="item-total">5</div>
             </div>
             <div className="schedule-container">{schedules?.map((item, index) => <ScheduleCard data={item} key={index} />)}</div>
+            <CompletedModal />
         </>
     )
 }

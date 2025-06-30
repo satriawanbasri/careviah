@@ -8,7 +8,7 @@ app.use((req, res, next) => {
 })
 app.use(express.json())
 
-const schedules = require('./data.json')
+let schedules = require('./data.json')
 
 const getAllServices = () => {
     return schedules.flatMap(client =>
@@ -42,14 +42,16 @@ app.get('/schedules/:id', (req, res) => {
 })
 
 app.post('/schedules/:id/start', (req, res) => {
-    const { location } = req.body
+    const { latitude, longitude, address } = req.body
     let updated = false
 
     schedules.forEach(client => {
         client.services.forEach(service => {
             if (service.serviceId === req.params.id) {
                 service.actualClockIn = new Date().toISOString()
-                service.clockInLocation = location || 'Unknown'
+                service.clockInLatitude = latitude || null
+                service.clockInLongitude = longitude || null
+                service.clockInAddress = address || client.clientAddress
                 service.status = 'in_progress'
                 updated = true
             }
@@ -60,14 +62,16 @@ app.post('/schedules/:id/start', (req, res) => {
 })
 
 app.post('/schedules/:id/end', (req, res) => {
-    const { location } = req.body
+    const { latitude, longitude, address } = req.body
     let updated = false
 
     schedules.forEach(client => {
         client.services.forEach(service => {
             if (service.serviceId === req.params.id) {
                 service.actualClockOut = new Date().toISOString()
-                service.clockOutLocation = location || 'Unknown'
+                service.clockOutLatitude = latitude || null
+                service.clockOutLongitude = longitude || null
+                service.clockOutAddress = address || client.clientAddress
                 service.status = 'completed'
                 updated = true
             }
@@ -75,6 +79,29 @@ app.post('/schedules/:id/end', (req, res) => {
     })
 
     updated ? res.json({ message: 'Clock-out recorded' }) : res.status(404).json({ error: 'Service not found' })
+})
+
+app.post('/schedules/:id/cancel', (req, res) => {
+    let updated = false
+
+    schedules.forEach(client => {
+        client.services.forEach(service => {
+            if (service.serviceId === req.params.id) {
+                service.actualClockIn = null
+                service.actualClockOut = null
+                service.clockInLatitude = null
+                service.clockInLongitude = null
+                service.clockInAddress = null
+                service.clockOutLatitude = null
+                service.clockOutLongitude = null
+                service.clockOutAddress = null
+                service.status = 'cancelled'
+                updated = true
+            }
+        })
+    })
+
+    updated ? res.json({ message: 'Schedule cancelled' }) : res.status(404).json({ error: 'Service not found' })
 })
 
 app.post('/tasks/:taskId/update', (req, res) => {
@@ -85,8 +112,8 @@ app.post('/tasks/:taskId/update', (req, res) => {
         client.services.forEach(service => {
             service.tasks.forEach(task => {
                 if (task.taskId === req.params.taskId) {
-                    if (typeof completed === 'boolean') task.completed = completed
-                    if (notes) task.notes = notes
+                    task.completed = completed
+                    task.notes = notes
                     updated = true
                 }
             })
@@ -94,6 +121,41 @@ app.post('/tasks/:taskId/update', (req, res) => {
     })
 
     updated ? res.json({ message: 'Task updated' }) : res.status(404).json({ error: 'Task not found' })
+})
+
+app.get('/dashboard/stats', (req, res) => {
+    const allServices = getAllServices()
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+
+    let missedScheduleCount = 0
+    let upcomingTodayScheduleCount = 0
+    let todayCompletedScheduleCount = 0
+
+    allServices.forEach(service => {
+        const scheduledDate = new Date(service.scheduledDate)
+        scheduledDate.setHours(0, 0, 0, 0)
+
+        if (service.status === 'completed' && scheduledDate.getTime() === today.getTime()) {
+            todayCompletedScheduleCount++
+        } else if (scheduledDate.getTime() < today.getTime() && service.status !== 'completed' && service.status !== 'cancelled') {
+            missedScheduleCount++
+        } else if (scheduledDate.getTime() === today.getTime() && service.status === 'scheduled') {
+            upcomingTodayScheduleCount++
+        }
+    })
+
+    res.json({
+        missedSchedule: missedScheduleCount,
+        upcomingTodaySchedule: upcomingTodayScheduleCount,
+        todayCompletedSchedule: todayCompletedScheduleCount,
+    })
+})
+
+app.get('/reset', (req, res) => {
+    delete require.cache[require.resolve('./data.json')]
+    schedules = require('./data.json')
+    res.json({ message: 'Data has been reset' })
 })
 
 app.listen(PORT, () => {

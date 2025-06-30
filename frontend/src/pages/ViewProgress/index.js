@@ -4,20 +4,17 @@ import { ArrowLeft } from 'lucide-react'
 import mapLocation from '../../assets/map-location.svg'
 import { TaskCard } from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { fetchScheduleById, endSchedule, cancelSchedule } from '../../utils/api'
+import { fetchScheduleById } from '../../utils/api'
 import { differenceInSeconds } from 'date-fns'
-import { IsShowBottomBarContext, IsShowCompletedModalContext, IsShowLoadingContext } from '../../utils/contexts'
-import { useIsMobile } from '../../hooks'
+import { IsShowBottomBarContext, IsShowLoadingContext } from '../../utils/contexts'
 import { toast } from 'react-toastify'
 
 export default () => {
     const { setIsShowBottomBar } = useContext(IsShowBottomBarContext)
-    const { setIsShowCompletedModal } = useContext(IsShowCompletedModalContext)
     const { setIsShowLoading } = useContext(IsShowLoadingContext)
     const [schedule, setSchedule] = useState()
     const [elapsedSeconds, setElapsedSeconds] = useState(0)
     const navigate = useNavigate()
-    const isMobile = useIsMobile()
     const location = useLocation()
     const { serviceId } = location.state || {}
 
@@ -59,53 +56,11 @@ export default () => {
         return `${hours} : ${minutes} : ${seconds}`
     }
 
-    const handleCancel = () => {
-        setIsShowLoading(true)
-        cancelSchedule(serviceId)
-            .then(res => {
-                navigate('/')
-                setIsShowLoading(false)
-                toast.success('Schedule has been cancelled successfully!')
-            })
-            .catch(err => {
-                setIsShowLoading(false)
-                toast.error('Something went wrong!')
-            })
-    }
-
-    const handleClockOut = () => {
-        navigator.geolocation.getCurrentPosition(
-            async position => {
-                const { latitude, longitude } = position.coords
-                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
-                const data = await response.json()
-                setIsShowLoading(true)
-                endSchedule(serviceId, latitude, longitude, data?.display_name)
-                    .then(res => {
-                        setIsShowLoading(false)
-                        if (isMobile) {
-                            navigate('/schedule-completed')
-                        } else {
-                            setIsShowCompletedModal(true)
-                            navigate('/')
-                        }
-                    })
-                    .catch(err => {
-                        setIsShowLoading(false)
-                        toast.error('Something went wrong!')
-                    })
-            },
-            err => {
-                toast.error('Cannot access location!')
-            }
-        )
-    }
-
     return (
         <>
             <div className="title-container">
                 <ArrowLeft size={32} className="back" onClick={() => navigate('/')} />
-                <div className="title">Clock-Out</div>
+                <div className="title">View Progress</div>
             </div>
             <div className="tick">{formatElapsed(elapsedSeconds)}</div>
             <div className="profile-card">
@@ -128,14 +83,6 @@ export default () => {
             </div>
             <div className="notes">Service Notes:</div>
             <div className="notes-content">{schedule?.serviceNotes}</div>
-            <div className="action-container">
-                <button className="button-outlined" onClick={() => handleCancel()}>
-                    Cancel Clock-In
-                </button>
-                <button className="button-filled" onClick={() => handleClockOut()}>
-                    Clock-Out
-                </button>
-            </div>
         </>
     )
 }

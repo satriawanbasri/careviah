@@ -9,6 +9,13 @@
     display: none;
 }
 
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
 .total-container {
     margin-top: 32px;
     display: flex;

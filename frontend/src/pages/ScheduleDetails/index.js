@@ -3,12 +3,14 @@ import { useEffect, useState, useContext } from 'react'
 import { ArrowLeft, CalendarMinus2, Clock4, Minus, Mail, Phone } from 'lucide-react'
 import { TaskCard } from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { fetchScheduleById } from '../../utils/api'
+import { fetchScheduleById, startSchedule } from '../../utils/api'
 import { format } from 'date-fns'
-import { IsShowBottomBarContext } from '../../utils/contexts'
+import { IsShowBottomBarContext, IsShowLoadingContext } from '../../utils/contexts'
+import { toast } from 'react-toastify'
 
 export default () => {
     const { setIsShowBottomBar } = useContext(IsShowBottomBarContext)
+    const { setIsShowLoading } = useContext(IsShowLoadingContext)
     const [schedule, setSchedule] = useState()
     const navigate = useNavigate()
     const location = useLocation()
@@ -16,12 +18,46 @@ export default () => {
 
     useEffect(() => {
         if (serviceId) {
-            fetchScheduleById(serviceId).then(res => setSchedule(res.data))
+            setIsShowLoading(true)
+            fetchScheduleById(serviceId)
+                .then(res => {
+                    setSchedule(res.data)
+                    setIsShowLoading(false)
+                })
+                .catch(err => {
+                    setIsShowLoading(false)
+                    toast.error('Something went wrong!')
+                })
         }
 
         setIsShowBottomBar(false)
         return () => setIsShowBottomBar(true)
     }, [])
+
+    const handleClockIn = () => {
+        navigator.geolocation.getCurrentPosition(
+            async position => {
+                const { latitude, longitude } = position.coords
+                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+                const data = await response.json()
+                setIsShowLoading(true)
+                startSchedule(serviceId, latitude, longitude, data?.display_name)
+                    .then(res => navigate('/'))
+                    .then(res => {
+                        navigate('/')
+                        setIsShowLoading(false)
+                        toast.success('Clocked in started!')
+                    })
+                    .catch(err => {
+                        setIsShowLoading(false)
+                        toast.error('Something went wrong!')
+                    })
+            },
+            err => {
+                toast.error('Cannot access location!')
+            }
+        )
+    }
 
     return (
         <>
@@ -65,10 +101,12 @@ export default () => {
             <div className="address-title">Address:</div>
             <div className="address">{schedule?.clientAddress}</div>
             <div className="task">Tasks:</div>
-            {schedule?.tasks?.map((item, index) => <TaskCard data={item} isClockOut={false} key={index} />)}
+            {schedule?.tasks?.map((item, index) => <TaskCard data={item} isReadOnly={false} key={index} />)}
             <div className="notes">Service Notes:</div>
             <div className="notes-content">{schedule?.serviceNotes}</div>
-            <button className="button-filled">Clock-In Now</button>
+            <button className="button-filled" onClick={() => handleClockIn()}>
+                Clock-In Now
+            </button>
         </>
     )
 }

@@ -47,13 +47,21 @@ export default ({ data }) => {
                         Clock-In Now
                     </button>
                 )}
-                {data?.status == 'in_progress' && <button className="button-filled">Clock-Out Now</button>}
                 {data?.status == 'in_progress' && (
-                    <button className="button-outlined" onClick={() => navigate('/clock-out', { state: { serviceId: data?.serviceId } })}>
+                    <button className="button-filled" onClick={() => navigate('/clock-out', { state: { serviceId: data?.serviceId } })}>
+                        Clock-Out Now
+                    </button>
+                )}
+                {data?.status == 'in_progress' && (
+                    <button className="button-outlined" onClick={() => navigate('/view-progress', { state: { serviceId: data?.serviceId } })}>
                         View Progress
                     </button>
                 )}
-                {data?.status == 'completed' && <button className="button-outlined">View Report</button>}
+                {data?.status == 'completed' && (
+                    <button className="button-outlined" onClick={() => navigate('/view-report', { state: { serviceId: data?.serviceId } })}>
+                        View Report
+                    </button>
+                )}
             </div>
         </div>
     )
