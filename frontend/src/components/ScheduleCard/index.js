@@ -25,17 +25,17 @@ export default ({ data }) => {
                 </div>
             </div>
             <div className="location-container">
-                <MapPin size={28} fill="#00000099" color="#ffffff" />
+                <MapPin size={26} fill="#00000099" color="#ffffff" />
                 <div className="location">{data?.clientAddress}</div>
             </div>
             <div className="schedule-container">
                 <div className="date">
-                    <CalendarMinus2 color="#02CAD1" />
+                    <CalendarMinus2 size={20} color="#02CAD1" />
                     <div className="date-text">{data?.scheduledDate ? format(new Date(data?.scheduledDate), 'EEE, dd MMM yyyy') : ''}</div>
                 </div>
                 <Minus size={20} color="#00000099" style={{ transform: 'rotate(90deg)' }} />
                 <div className="time">
-                    <Clock4 color="#02CAD1" />
+                    <Clock4 size={20} color="#02CAD1" />
                     <div className="time-text">
                         {data?.scheduledStartTime} - {data?.scheduledEndTime}
                     </div>
