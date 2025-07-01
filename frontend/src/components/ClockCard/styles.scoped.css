@@ -23,13 +23,17 @@
 }
 
 .avatar {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.avatar-image {
+    height: 56px;
 }
 
 .name {
@@ -60,7 +64,7 @@
 .location-container-mobile {
     display: none;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 0px;
     color: #eeeeee;
     display: none;
 }
@@ -113,5 +117,30 @@
 
     .location-container-mobile {
         display: flex;
+    }
+
+    .tick {
+        font-size: 20px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .avatar-image {
+        height: 40px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .location {
+        font-size: 14px;
+    }
+
+    .time-text {
+        font-size: 14px;
     }
 }

@@ -1,0 +1,142 @@
+{
+  "info": {
+    "name": "careviah",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "12345678-abcd-efgh-ijkl-987654321000"
+  },
+  "item": [
+    {
+      "name": "Get All Schedules",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/schedules",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["schedules"]
+        }
+      }
+    },
+    {
+      "name": "Get Today's Schedules",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/schedules/today",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["schedules", "today"]
+        }
+      }
+    },
+    {
+      "name": "Get Schedule by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/schedules/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["schedules", ":id"]
+        }
+      }
+    },
+    {
+      "name": "Start Service",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": -8.652,\n  \"longitude\": 116.327,\n  \"address\": \"Keruak, NTB\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4000/schedules/:id/start",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["schedules", ":id", "start"]
+        }
+      }
+    },
+    {
+      "name": "End Service",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": -8.652,\n  \"longitude\": 116.327,\n  \"address\": \"Keruak, NTB\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4000/schedules/:id/end",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["schedules", ":id", "end"]
+        }
+      }
+    },
+    {
+      "name": "Cancel Schedule",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:4000/schedules/:id/cancel",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["schedules", ":id", "cancel"]
+        }
+      }
+    },
+    {
+      "name": "Update Task Status",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"completed\": true,\n  \"notes\": \"Task completed successfully.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4000/tasks/:taskId/update",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["tasks", ":taskId", "update"]
+        }
+      }
+    },
+    {
+      "name": "Get Dashboard Stats",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/dashboard/stats",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["dashboard", "stats"]
+        }
+      }
+    },
+    {
+      "name": "Reset Data",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/reset",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["reset"]
+        }
+      }
+    }
+  ]
+}

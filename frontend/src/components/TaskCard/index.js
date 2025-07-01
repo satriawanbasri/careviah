@@ -66,12 +66,12 @@ export default ({ data, isReadOnly = true }) => {
                 <>
                     <div className="actions">
                         <div className={yesStyle} onClick={() => handleYes()}>
-                            <Check size={24} color="#2E7D32" />
+                            <Check size={22} color="#2E7D32" />
                             <div className="action-text">Yes</div>
                         </div>
                         <Minus size={20} color="#00000099" style={{ transform: 'rotate(90deg)' }} />
                         <div className={noStyle} onClick={() => handleNo()}>
-                            <X size={24} color="#D32F2F" />
+                            <X size={22} color="#D32F2F" />
                             <div className="action-text">No</div>
                         </div>
                     </div>
@@ -85,12 +85,12 @@ export default ({ data, isReadOnly = true }) => {
                 <>
                     <div className="actions">
                         <div className={yesStyle}>
-                            <Check size={24} color="#2E7D32" />
+                            <Check size={22} color="#2E7D32" />
                             <div className="action-text">Yes</div>
                         </div>
                         <Minus size={20} color="#00000099" style={{ transform: 'rotate(90deg)' }} />
                         <div className={noStyle}>
-                            <X size={24} color="#D32F2F" />
+                            <X size={22} color="#D32F2F" />
                             <div className="action-text">No</div>
                         </div>
                     </div>

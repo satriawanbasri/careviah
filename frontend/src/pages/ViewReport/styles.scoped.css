@@ -55,6 +55,10 @@
     justify-content: center;
 }
 
+.avatar-image {
+    height: 64px;
+}
+
 .name {
     font-weight: 600;
     font-size: 24px;
@@ -136,6 +140,7 @@
 
 @media (max-width: 767px) {
     .tick {
+        font-size: 20px;
         margin-top: 28px;
     }
 
@@ -149,5 +154,67 @@
 
     .title {
         text-align: center;
+        font-size: 20px;
+    }
+
+    .task-name {
+        font-size: 16px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .avatar-image {
+        height: 40px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .date {
+        min-width: 140px;
+    }
+
+    .time {
+        min-width: 140px;
+    }
+
+    .contact {
+        font-size: 16px;
+    }
+
+    .email {
+        font-size: 14px;
+    }
+
+    .phone {
+        font-size: 14px;
+    }
+
+    .address {
+        font-size: 14px;
+    }
+
+    .task {
+        font-size: 16px;
+    }
+
+    .notes {
+        font-size: 16px;
+    }
+
+    .notes-content {
+        font-size: 14px;
+    }
+
+    .map-image {
+        height: 100px;
+    }
+
+    .location {
+        font-size: 16px;
     }
 }

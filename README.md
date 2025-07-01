@@ -7,7 +7,7 @@ Frontend using reactjs javascript.
 
 To run it locally for both frontend and backend, just install the package first using "yarn" command, and run the apps using "yarn start".  
 By default backend run on port 4000 and frontend run on port 3000.  
-Don't forget to change environment variable (.env file) in frontend to point to local backend server by changning  
+Don't forget to change environment variable (.env file) in frontend to point to local backend server by changing  
 REACT_APP_API_BASE_URL=http://localhost:4000  
 #REACT_APP_API_BASE_URL=https://api-careviah.vercel.app
 
@@ -28,4 +28,6 @@ for local
 http://localhost:4000/reset  
 or for local just restart the apps. Ctr+C then rerun "yarn start".  
 The aim of this reset is to help in testing process because it its just using memory database.  
-The json file data can be modified as needed to full fill business logic scenario.
+The json file data can be modified as needed to full fill business logic scenario.  
+In this case, it use all data, but can also use today's data.  
+Provided postman collection file, can be imported using postman for api testing, careviah.postman_collection.json

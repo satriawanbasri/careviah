@@ -109,4 +109,8 @@
     .total-container.mobile {
         display: flex;
     }
+
+    .total-text {
+        font-size: 12px;
+    }
 }

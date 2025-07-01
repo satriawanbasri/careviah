@@ -73,6 +73,10 @@
     justify-content: center;
 }
 
+.avatar-image {
+    height: 64px;
+}
+
 .name-container {
     display: flex;
     flex-direction: column;
@@ -172,4 +176,43 @@
     width: 100%;
     cursor: pointer;
     border: 1px solid #2da6ff80;
+}
+
+@media (max-width: 767px) {
+    .avatar {
+        height: 40px;
+        width: 40px;
+    }
+
+    .avatar-image {
+        height: 40px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .email {
+        font-size: 12px;
+    }
+
+    .location {
+        font-size: 12px;
+    }
+
+    .date {
+        min-width: 135px;
+    }
+
+    .time {
+        min-width: 135px;
+    }
+
+    .date-text {
+        font-size: 12px;
+    }
+
+    .time-text {
+        font-size: 12px;
+    }
 }

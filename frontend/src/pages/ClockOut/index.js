@@ -74,12 +74,12 @@ export default () => {
     }
 
     const handleClockOut = () => {
+        setIsShowLoading(true)
         navigator.geolocation.getCurrentPosition(
             async position => {
                 const { latitude, longitude } = position.coords
                 const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
                 const data = await response.json()
-                setIsShowLoading(true)
                 endSchedule(serviceId, latitude, longitude, data?.display_name)
                     .then(res => {
                         setIsShowLoading(false)
@@ -96,6 +96,7 @@ export default () => {
                     })
             },
             err => {
+                setIsShowLoading(false)
                 toast.error('Cannot access location!')
             }
         )
@@ -112,7 +113,7 @@ export default () => {
                 <div className="task-name">{schedule?.serviceName}</div>
                 <div className="profile">
                     <div className="avatar">
-                        <img src={schedule?.clientProfilePhotoUrl} alt="User" height="64px" />
+                        <img className="avatar-image" src={schedule?.clientProfilePhotoUrl} alt="User" />
                     </div>
                     <div className="name">{schedule?.clientName}</div>
                 </div>
@@ -121,10 +122,8 @@ export default () => {
             {schedule?.tasks?.map((item, index) => <TaskCard data={item} isReadOnly={false} key={index} />)}
             <div className="location">Clock-In Location:</div>
             <div className="address-container">
-                <img src={mapLocation} alt="map-location" />
-                <div className="address-title">
-                    <div className="address">{schedule?.clientAddress}</div>
-                </div>
+                <img className="map-image" src={mapLocation} alt="map-location" />
+                <div className="address">{schedule?.clockInAddress}</div>
             </div>
             <div className="notes">Service Notes:</div>
             <div className="notes-content">{schedule?.serviceNotes}</div>

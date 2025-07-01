@@ -138,7 +138,7 @@ app.get('/dashboard/stats', (req, res) => {
 
         if (service.status === 'completed' && scheduledDate.getTime() === today.getTime()) {
             todayCompletedScheduleCount++
-        } else if (scheduledDate.getTime() < today.getTime() && service.status !== 'completed' && service.status !== 'cancelled') {
+        } else if (scheduledDate.getTime() < today.getTime() && service.status == 'scheduled') {
             missedScheduleCount++
         } else if (scheduledDate.getTime() === today.getTime() && service.status === 'scheduled') {
             upcomingTodayScheduleCount++

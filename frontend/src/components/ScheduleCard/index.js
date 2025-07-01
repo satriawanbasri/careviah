@@ -17,7 +17,7 @@ export default ({ data }) => {
             </div>
             <div className="profile">
                 <div className="avatar">
-                    <img src={data?.clientProfilePhotoUrl} alt="User" height="64px" />
+                    <img className="avatar-image" src={data?.clientProfilePhotoUrl} alt="User" />
                 </div>
                 <div className="name-container">
                     <div className="name">{data?.clientName}</div>
@@ -25,7 +25,7 @@ export default ({ data }) => {
                 </div>
             </div>
             <div className="location-container">
-                <MapPin size={32} fill="#00000099" color="#ffffff" />
+                <MapPin size={28} fill="#00000099" color="#ffffff" />
                 <div className="location">{data?.clientAddress}</div>
             </div>
             <div className="schedule-container">

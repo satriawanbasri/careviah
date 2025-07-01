@@ -35,12 +35,12 @@ export default () => {
     }, [])
 
     const handleClockIn = () => {
+        setIsShowLoading(true)
         navigator.geolocation.getCurrentPosition(
             async position => {
                 const { latitude, longitude } = position.coords
                 const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
                 const data = await response.json()
-                setIsShowLoading(true)
                 startSchedule(serviceId, latitude, longitude, data?.display_name)
                     .then(res => navigate('/'))
                     .then(res => {
@@ -54,6 +54,7 @@ export default () => {
                     })
             },
             err => {
+                setIsShowLoading(false)
                 toast.error('Cannot access location!')
             }
         )
@@ -62,27 +63,27 @@ export default () => {
     return (
         <>
             <div className="title-container">
-                <ArrowLeft size={32} className="back" onClick={() => navigate('/')} />
+                <ArrowLeft size={28} className="back" onClick={() => navigate('/')} />
                 <div className="title">Schedule Details</div>
             </div>
             <div className="profile-card">
                 <div className="task-name">{schedule?.serviceName}</div>
                 <div className="profile">
                     <div className="avatar">
-                        <img src={schedule?.clientProfilePhotoUrl} alt="User" height="64px" />
+                        <img className="avatar-image" src={schedule?.clientProfilePhotoUrl} alt="User" height="64px" />
                     </div>
                     <div className="name">{schedule?.clientName}</div>
                 </div>
                 <div className="schedule-container">
                     <div className="date">
-                        <CalendarMinus2 color="#02CAD1" />
+                        <CalendarMinus2 size={20} color="#02CAD1" />
                         <div className="date-text">
                             {schedule?.scheduledDate ? format(new Date(schedule?.scheduledDate), 'EEE, dd MMM yyyy') : ''}
                         </div>
                     </div>
                     <Minus size={20} color="#00000099" style={{ transform: 'rotate(90deg)' }} />
                     <div className="time">
-                        <Clock4 color="#02CAD1" />
+                        <Clock4 size={20} color="#02CAD1" />
                         <div className="time-text">
                             {schedule?.scheduledStartTime} - {schedule?.scheduledEndTime}
                         </div>
@@ -91,11 +92,11 @@ export default () => {
             </div>
             <div className="contact">Client Contact:</div>
             <div className="email">
-                <Mail color="#1D1D1BDE" />
+                <Mail size={20} color="#1D1D1BDE" />
                 {schedule?.clientEmail}
             </div>
             <div className="phone">
-                <Phone color="#1D1D1BDE" />
+                <Phone size={20} color="#1D1D1BDE" />
                 {schedule?.clientPhone}
             </div>
             <div className="address-title">Address:</div>

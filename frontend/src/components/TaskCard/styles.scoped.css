@@ -17,6 +17,10 @@
     color: #0d5d59;
 }
 
+.description {
+    font-size: 16px;
+}
+
 .actions {
     display: flex;
     flex-direction: row;
@@ -58,9 +62,9 @@
     height: 30px;
     border-radius: 10px;
     padding-top: 8px;
-    padding-right: 20px;
+    padding-right: 10px;
     padding-bottom: 8px;
-    padding-left: 20px;
+    padding-left: 10px;
     border: 1px solid #c4c4c4;
     font-size: 16px;
     margin-top: 10px;
@@ -69,6 +73,7 @@
 .notes-content {
     color: #1d1d1bde;
     margin-top: 10px;
+    font-size: 16px;
 }
 
 .button-outlined {
@@ -83,4 +88,26 @@
     cursor: pointer;
     border: 1px solid silver;
     margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .title {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .action-text {
+        font-size: 14px;
+    }
+
+    .reason {
+        font-size: 14px;
+    }
+
+    .notes-content {
+        font-size: 14px;
+    }
 }

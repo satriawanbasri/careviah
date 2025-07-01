@@ -1,6 +1,6 @@
 import './styles.scoped.css'
-import { useEffect, useState, useContext } from 'react'
-import { CalendarMinus2, Clock4, MapPin, Minus, Timer } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Clock4, MapPin, Timer } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { differenceInSeconds } from 'date-fns'
 
@@ -33,7 +33,7 @@ export default ({ data }) => {
             <div className="tick">{formatElapsed(elapsedSeconds)}</div>
             <div className="profile">
                 <div className="avatar">
-                    <img src={data?.clientProfilePhotoUrl} alt="User" height="64px" />
+                    <img className="avatar-image" src={data?.clientProfilePhotoUrl} alt="User" />
                 </div>
                 <div className="name">{data?.clientName}</div>
             </div>
@@ -41,7 +41,7 @@ export default ({ data }) => {
                 <MapPin size={18} color="#EEEEEE" />
                 <div className="location">{data?.clientAddress}</div>
                 |
-                <Clock4 size={18} color="#EEEEEE" />
+                <Clock4 size={16} color="#EEEEEE" />
                 <div className="time-text">
                     {data?.scheduledStartTime} - {data?.scheduledEndTime}
                 </div>

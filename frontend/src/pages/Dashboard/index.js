@@ -1,19 +1,43 @@
 import './styles.scoped.css'
 import { useEffect, useState, useContext } from 'react'
 import { ScheduleCard, ClockCard, CompletedModal } from '../../components'
-import { fetchAllSchedules } from '../../utils/api'
+import { fetchAllSchedules, fetchDashboardStats, fetchTodaySchedules } from '../../utils/api'
 import { IsShowLoadingContext } from '../../utils/contexts'
 import { toast } from 'react-toastify'
 
 export default () => {
     const { setIsShowLoading } = useContext(IsShowLoadingContext)
     const [schedules, setSchedules] = useState()
+    const [stats, setStats] = useState()
 
     useEffect(() => {
         setIsShowLoading(true)
+
+        //can also fetch today's data
+        // fetchTodaySchedules()
+        //     .then(res => {
+        //         setSchedules(res.data)
+        //         setIsShowLoading(false)
+        //     })
+        //     .catch(err => {
+        //         setIsShowLoading(false)
+        //         toast.error('Something went wrong!')
+        //     })
+
+        //for testing purpose, we using all data
         fetchAllSchedules()
             .then(res => {
                 setSchedules(res.data)
+                setIsShowLoading(false)
+            })
+            .catch(err => {
+                setIsShowLoading(false)
+                toast.error('Something went wrong!')
+            })
+
+        fetchDashboardStats()
+            .then(res => {
+                setStats(res.data)
                 setIsShowLoading(false)
             })
             .catch(err => {
@@ -34,19 +58,19 @@ export default () => {
             <div className="total-container desktop">
                 <div className="total-card">
                     <div className="total-value" style={{ color: '#D32F2F' }}>
-                        7
+                        {stats?.missedSchedule}
                     </div>
                     <div className="total-text">Missed Schedule</div>
                 </div>
                 <div className="total-card">
                     <div className="total-value" style={{ color: '#ED6C02' }}>
-                        12
+                        {stats?.upcomingTodaySchedule}
                     </div>
                     <div className="total-text">Upcoming Today's Schedule</div>
                 </div>
                 <div className="total-card">
                     <div className="total-value" style={{ color: '#2E7D32' }}>
-                        5
+                        {stats?.todayCompletedSchedule}
                     </div>
                     <div className="total-text">Today's Completed Schedule</div>
                 </div>
@@ -54,14 +78,14 @@ export default () => {
             <div className="total-container mobile">
                 <div className="total-card">
                     <div className="total-value" style={{ color: '#D32F2F' }}>
-                        7
+                        {stats?.missedSchedule}
                     </div>
                     <div className="total-text">Missed Schedule</div>
                 </div>
                 <div className="total-container2">
                     <div className="total-card">
                         <div className="total-value" style={{ color: '#ED6C02' }}>
-                            12
+                            {stats?.upcomingTodaySchedule}
                         </div>
                         <div className="total-text" style={{ textAlign: 'center' }}>
                             Upcoming Today's <br /> Schedule
@@ -69,7 +93,7 @@ export default () => {
                     </div>
                     <div className="total-card">
                         <div className="total-value" style={{ color: '#2E7D32' }}>
-                            5
+                            {stats?.todayCompletedSchedule}
                         </div>
                         <div className="total-text" style={{ textAlign: 'center' }}>
                             Today's Completed <br /> Schedule
