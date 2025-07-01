@@ -6,7 +6,7 @@ import { TaskCard } from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { fetchScheduleById, endSchedule, cancelSchedule } from '../../utils/api'
 import { differenceInSeconds } from 'date-fns'
-import { IsShowBottomBarContext, IsShowCompletedModalContext, IsShowLoadingContext } from '../../utils/contexts'
+import { IsShowBottomBarContext, IsShowCompletedModalContext, IsShowLoadingContext, CompletedServiceIdContext } from '../../utils/contexts'
 import { useIsMobile } from '../../hooks'
 import { toast } from 'react-toastify'
 
@@ -14,6 +14,7 @@ export default () => {
     const { setIsShowBottomBar } = useContext(IsShowBottomBarContext)
     const { setIsShowCompletedModal } = useContext(IsShowCompletedModalContext)
     const { setIsShowLoading } = useContext(IsShowLoadingContext)
+    const { setCompletedServiceId } = useContext(CompletedServiceIdContext)
     const [schedule, setSchedule] = useState()
     const [elapsedSeconds, setElapsedSeconds] = useState(0)
     const navigate = useNavigate()
@@ -83,6 +84,7 @@ export default () => {
                 endSchedule(serviceId, latitude, longitude, data?.display_name)
                     .then(res => {
                         setIsShowLoading(false)
+                        setCompletedServiceId(serviceId)
                         if (isMobile) {
                             navigate('/schedule-completed')
                         } else {
