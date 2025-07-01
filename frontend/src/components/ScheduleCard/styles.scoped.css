@@ -179,6 +179,10 @@
 }
 
 @media (max-width: 767px) {
+    .container {
+        padding: 20px 20px 12px 20px;
+    }
+
     .avatar {
         height: 40px;
         width: 40px;
@@ -201,11 +205,11 @@
     }
 
     .date {
-        min-width: 135px;
+        min-width: 120px;
     }
 
     .time {
-        min-width: 135px;
+        min-width: 120px;
     }
 
     .date-text {

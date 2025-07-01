@@ -216,11 +216,19 @@
     }
 
     .date {
-        min-width: 140px;
+        min-width: 120px;
     }
 
     .time {
-        min-width: 140px;
+        min-width: 120px;
+    }
+
+    .date-text {
+        font-size: 12px;
+    }
+
+    .time-text {
+        font-size: 12px;
     }
 
     .contact {
